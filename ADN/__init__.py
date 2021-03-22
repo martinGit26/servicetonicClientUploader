@@ -8,7 +8,7 @@ class db:
     cursor = ""
     def __init__ (self):
         db = self.read_conf()
-        cnx = pyodbc.connect('DRIVER={SQL Server};SERVER='+db['server']+';DATABASE='+db['database']+';UID='+db['username']+';PWD='+db['password'])
+        cnx = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+db['server']+';DATABASE='+db['database']+';UID='+db['username']+';PWD='+db['password'])
         self.cursor = cnx.cursor()
         self.read_conf()
 
