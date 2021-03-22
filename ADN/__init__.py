@@ -8,6 +8,7 @@ class db:
     cursor = ""
     def __init__ (self):
         db = self.read_conf()
+        print(db)
         cnx = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+db['server']+';DATABASE='+db['database']+';UID='+db['username']+';PWD='+db['password'])
         self.cursor = cnx.cursor()
         self.read_conf()
@@ -16,13 +17,14 @@ class db:
     def read_conf (self):
         with open('./ADN/database.json') as f:
             db = json.load(f)
+        
         return db
         
     def read_clients():
         self.cursor.execute("SELECT * FROM servicetonic")
         row = self.cursor.fetchone()
         while row:
-            print(row[0])
+            print(row)
             row = self.cursor.fetchone()
 
 
