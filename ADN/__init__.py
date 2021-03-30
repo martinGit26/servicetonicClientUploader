@@ -20,7 +20,7 @@ class db:
         
         return db
         
-    def read_clients():
+    def read_clients(self):
         self.cursor.execute("SELECT * FROM servicetonic")
         row = self.cursor.fetchone()
         while row:
