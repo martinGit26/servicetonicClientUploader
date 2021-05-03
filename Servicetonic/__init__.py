@@ -53,11 +53,11 @@ class api:
             
             }
 
-        print(json.dumps(datos))
+        
 
         params = {'rsConfigurationItem': json.dumps(datos)}
 
         print(params)
-        req = requests.post(url, files = dict(params), headers = {"Authorization":self.token, "Content-Type":"multipart/form-data"} )
+        req = requests.post(url, files = dict(params), headers = {"Authorization":self.token, "Content-Type":"multipart/form-data;boundary=STBoundary"} )
 
         print(req.text)
