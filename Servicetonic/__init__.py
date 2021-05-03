@@ -13,7 +13,8 @@ class api:
     def read_credentials(self):
         with open('./Servicetonic/credentials.json') as f:
             credentials = json.load(f)
-        
+
+        print(credentials)
         return credentials
 
     def login(self):
