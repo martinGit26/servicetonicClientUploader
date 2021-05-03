@@ -4,4 +4,5 @@ import Servicetonic
 #adn.read_clients()
 
 servicetonic = Servicetonic.api()
+servicetonic.new_client()
 
