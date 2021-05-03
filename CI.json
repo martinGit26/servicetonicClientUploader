@@ -1,0 +1,21 @@
+{
+    "fieldList":[
+        {
+        "fieldName":"TITLE",
+        "textValue":"Martin_Sanchez"
+        },
+        {
+        "fieldName":"STATUS",
+        "textValue":"active"
+        },
+        {
+        "fieldName":"SERIAL_NUMBER",
+        "textValue":"78261438M"
+        },
+        {
+        "fieldName":"CI_TYPE",
+        "textValue":"Empresa"
+        }
+    ]
+    
+    }
