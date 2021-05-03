@@ -58,6 +58,6 @@ class api:
         params = {'rsConfigurationItem': json.dumps(datos)}
 
         print(params)
-        req = requests.post(url, data = params, headers = {"Authorization":self.token, "Content-Type":"multipart/form-data;boundary=STBoundary"} )
+        req = requests.post(url, data = params, headers = {"Authorization":self.token, "Content-Type":"multipart/form-data"} )
 
         print(req.text)
