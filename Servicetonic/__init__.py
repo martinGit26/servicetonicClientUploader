@@ -33,7 +33,13 @@ class api:
     def new_client(self):
         url = "http://enecworldiberica.myservicetonic.com/ServiceTonic/strest/v1/services/"+self.credentials['proyecto']+"/cis"
         datos = {
-            "fieldList":[
+           
+            
+            }
+
+        
+
+        params = {'rsConfigurationItem':  "fieldList":[
                 {
                 "fieldName":"TITLE",
                 "textValue":"Martin_Sanchez"
@@ -50,15 +56,9 @@ class api:
                 "fieldName":"CI_TYPE",
                 "textValue":"Empresa"
                 }
-            ]
-            
-            }
-
-        
-
-        params = {'rsConfigurationItem': json.dumps(datos)}
+            ] }
 
         print(params)
-        req = requests.post(url, data = params, headers = {"Authorization":self.token, "Content-Type":"application/json"} )
+        req = requests.post(url, json = params, headers = {"Authorization":self.token, "Content-Type":"application/json"} )
 
         print(req.text)
