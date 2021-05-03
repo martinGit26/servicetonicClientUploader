@@ -1,5 +1,6 @@
 import requests
 import json
+import pprint
 class api:
     credentials = ""
     token = "" 
@@ -55,9 +56,9 @@ class api:
 
         
 
-        params = {'rsConfigurationItem': open('CI.json','rb')}
+        params = {'rsConfigurationItem': json.dumps(datos)}
 
         print(params)
-        req = requests.post(url, files = params, headers = {"Authorization":self.token, "Content-Type":"multipart/form-data;boundary=STBoundary"} )
+        req = requests.post(url, data = params, headers = {"Authorization":self.token, "Content-Type":"application/json"} )
 
         print(req.text)
