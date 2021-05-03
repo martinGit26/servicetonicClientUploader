@@ -31,22 +31,22 @@ class api:
     def new_client(self):
         url = "http://enecworldiberica.myservicetonic.com/ServiceTonic/strest/v1/services/"+self.credentials['proyecto']+"/cis"
         datos = {
-            "fieldList": [
+            "fieldList":[
                 {
-                "fieldName": "TITLE",
-                "textValue": "Martin_Sanchez"
+                "fieldName":"TITLE",
+                "textValue":"Martin_Sanchez"
                 },
                 {
-                "fieldName": "STATUS",
-                "textValue": "active"
+                "fieldName":"STATUS",
+                "textValue":"active"
                 },
                 {
-                "fieldName": "SERIAL_NUMBER",
-                "textValue": "78261438M"
+                "fieldName":"SERIAL_NUMBER",
+                "textValue":"78261438M"
                 },
                 {
-                "fieldName": "CI_TYPE",
-                "textValue": "Empresa"
+                "fieldName":"CI_TYPE",
+                "textValue":"Empresa"
                 }
             ]
             
