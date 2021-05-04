@@ -31,12 +31,35 @@ class api:
 
         return req.text
 
-    def new_client(self):
+    def new_client(self, client):
+
+        f = open("./data/client.csv", "a")
         url = "http://enecworldiberica.myservicetonic.com/ServiceTonic/strest/v1/services/"+self.credentials['proyecto']+"/cis"    
+        datos = {
+            "fieldList":[
+                {
+                "fieldName":"TITLE",
+                "textValue":client[1]
+                },
+                {
+                "fieldName":"STATUS",
+                "textValue":"active"
+                },
+                {
+                "fieldName":"SERIAL_NUMBER",
+                "textValue":client[2]
+                },
+                {
+                "fieldName":"CI_TYPE",
+                "textValue":"Empresa"
+                }
+            ]
+            
+            }
         params = {'rsConfigurationItem': json.dumps(datos)}
         #params = { 'rsConfigurationItem': 'hola' }
         print(params)
         m = MultipartEncoder(params)
         req = requests.post(url, data = m , headers = {"Authorization":self.token, "Content-Type":m.content_type} )
-
+        f.write(client[2]+";"+req.text)
         print(req.text)

@@ -1,5 +1,6 @@
 import json
 import pyodbc
+import Servicetonic
 # Some other example server values are
 # server = 'localhost\sqlexpress' # for a named instance
 # server = 'myserver,port' # to specify an alternate port
@@ -21,11 +22,11 @@ class db:
         return db
         
     def read_clients(self):
+        serv = Servicetonic.api()
         self.cursor.execute("SELECT * FROM servicetonic")
         row = self.cursor.fetchone()
         while row:
-            print(row[1]+" "+row[2])
-            row = self.cursor.fetchone()
+            serv.new_client(row)
 
 
 
