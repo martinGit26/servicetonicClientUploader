@@ -1,4 +1,5 @@
 import requests
+from requests_toolbelt import MultipartEncoder
 import json
 import pprint
 class api:
@@ -31,34 +32,11 @@ class api:
         return req.text
 
     def new_client(self):
-        url = "http://enecworldiberica.myservicetonic.com/ServiceTonic/strest/v1/services/"+self.credentials['proyecto']+"/cis"
-        datos = {
-           
-            
-            }
-
-        
-
-        params = {'rsConfigurationItem':  "fieldList":[
-                {
-                "fieldName":"TITLE",
-                "textValue":"Martin_Sanchez"
-                },
-                {
-                "fieldName":"STATUS",
-                "textValue":"active"
-                },
-                {
-                "fieldName":"SERIAL_NUMBER",
-                "textValue":"78261438M"
-                },
-                {
-                "fieldName":"CI_TYPE",
-                "textValue":"Empresa"
-                }
-            ] }
-
+        url = "http://enecworldiberica.myservicetonic.com/ServiceTonic/strest/v1/services/"+self.credentials['proyecto']+"/cis"    
+        params = {'rsConfigurationItem': json.dumps(datos)}
+        #params = { 'rsConfigurationItem': 'hola' }
         print(params)
-        req = requests.post(url, json = params, headers = {"Authorization":self.token, "Content-Type":"application/json"} )
+        m = MultipartEncoder(params)
+        req = requests.post(url, data = m , headers = {"Authorization":self.token, "Content-Type":m.content_type} )
 
         print(req.text)
