@@ -24,7 +24,7 @@ class db:
         self.cursor.execute("SELECT * FROM servicetonic")
         row = self.cursor.fetchone()
         while row:
-            print(row)
+            print(row[1]+" "+row[2])
             row = self.cursor.fetchone()
 
 
