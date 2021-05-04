@@ -27,6 +27,7 @@ class db:
         row = self.cursor.fetchone()
         while row:
             serv.new_client(row)
+            row = self.cursor.fetchone()
 
 
 
